@@ -110,9 +110,19 @@ ssh-copy-id  -i  /root/.ssh/id_rsa.pub   root@hadoop4
 
 6、验证是否部署成功
 
-查看http://hadoop1:50070 Web页面
+查看http://hadoop1:50070 Web页面(客户端也在同一局域网内),可以看到节点全部启动
 
-使用jps命令查看当前进程
+![image-20241209213839441](./picture/image-20241209213839441.png)
+
+使用jps命令查看当前进程，可以看到hadoop和spark组件启动成功
+
+主节点
+
+![image-20241209213941469](./picture/image-20241209213941469.png)
+
+从节点
+
+![image-20241209214243713](./picture/image-20241209214243713.png)
 
 ## Usage 
 
