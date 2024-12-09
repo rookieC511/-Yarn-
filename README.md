@@ -16,34 +16,37 @@
 
 ![image-20241208184826561](picture/log246.png)
 
-![image-20241208185518936](picture/log354.png)
+
 
 # 当MAX CAPACITY为50时，运行时间约为3min，即：队列的总可调度资源影响作业执行效率
+![image-20241208185518936](picture/log354.png)
 
-![image-20241208185740972](picture/log457.png)
+
 
 
 
 # 向队列2提交四个并行任务
+![image-20241208185518936](picture/log397.png)
 
-![image-20241208183730276](picture/log486.png)
+
 
 QUEUE2的占用超过100%，证明从其它队列借用空闲资源
+![image-20241208183730276](picture/log457.png)
 
-![image-20241208184000841](picture/log572.png)
 
 查看任务提交和完成的顺序，得出队列任务调度执行FIFO
 
-![image-20241208191358284](picture/log664.png)
+![image-20241208183730276](picture/log486.png)
 
 # 研究capacity中的优先级：
 
 ## 设置最大优先级为3
+![image-20241208184000841](picture/log572.png)
 
-![image-20241208195659437](picture/log694.png)
 
 ## 将队列设置为两个，资源分配为30%和70%，并指定优先级为2和1
-
+![image-20241208191358284](picture/log664.png)
+![image-20241208195659437](picture/log694.png)
 ![image-20241208195828566](picture/log724.png)
 
 ![image-20241208201023903](picture/log754.png)
@@ -52,9 +55,6 @@ QUEUE2的占用超过100%，证明从其它队列借用空闲资源
 
 ![image-20241208230304470](picture/log786.png)
 
-![image-20241208230349763](C:\Users\20372\AppData\Roaming\Typora\typora-user-images\image-20241208230349763.png)
-
-![image-20241208230511034](C:\Users\20372\AppData\Roaming\Typora\typora-user-images\image-20241208230511034.png)
 
 在YARN的调度策略中，如果某个队列有空闲资源，它通常不应该去占用高优先级队列的资源，尤其是在没有特定的资源共享机制下。一般来说，调度器会根据队列的配置优先级来分配资源。如果低优先级队列有空闲资源，资源通常会被保留在该队列内，直到有新的任务提交或者资源被其他任务请求。
 
