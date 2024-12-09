@@ -1,8 +1,23 @@
-## 使用四个队列，资源划分为 10，20，30，40
+## Table of Contents
+
+- [Background](#background)
+- [Install](#install)
+- [Usage](#Usage)
+- [Maintainers](#maintainers)
+- [Contributing](#contributing)
+- [License](#license)
+## Background
+
+## Install
+
+## Usage 
+### 初步实验
+使用四个队列，资源划分为 10，20，30，40
 
 ![image-20241208195252586](picture/log53.png)
 
-# maxcapacity为100，允许借用其它资源，只提交作业提交在第一个队列  占用为166.7%，证明向其它队列借用资源，运行时间为1min
+### 参数MAX CAPACITY
+maxcapacity为100，允许借用其它资源，只提交作业提交在第一个队列  占用为166.7%，证明向其它队列借用资源，运行时间为1min
 
 
 
@@ -10,7 +25,7 @@
 
 ![image-20241208161516495](picture/log184.png)
 
-# 修改queue1的maxcapacity为50，观察其运行时间
+修改queue1的maxcapacity为50，观察其运行时间
 
 
 
@@ -18,14 +33,16 @@
 
 
 
-# 当MAX CAPACITY为50时，运行时间约为3min，即：队列的总可调度资源影响作业执行效率
+
+当MAX CAPACITY为50时，运行时间约为3min，即：队列的总可调度资源影响作业执行效率
 ![image-20241208185518936](picture/log354.png)
 
 
 
 
 
-# 向队列2提交四个并行任务
+### 
+向队列2提交四个并行任务
 ![image-20241208185518936](picture/log397.png)
 
 
@@ -38,13 +55,13 @@ QUEUE2的占用超过100%，证明从其它队列借用空闲资源
 
 ![image-20241208183730276](picture/log486.png)
 
-# 研究capacity中的优先级：
+### 研究capacity中的优先级：
 
-## 设置最大优先级为3
+设置最大优先级为3
 ![image-20241208184000841](picture/log572.png)
 
 
-## 将队列设置为两个，资源分配为30%和70%，并指定优先级为2和1
+### 将队列设置为两个，资源分配为30%和70%，并指定优先级为2和1
 ![image-20241208191358284](picture/log664.png)
 ![image-20241208195659437](picture/log694.png)
 ![image-20241208195828566](picture/log724.png)
