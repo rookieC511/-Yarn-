@@ -59,7 +59,7 @@ ssh-copy-id  -i  /root/.ssh/id_rsa.pub  root@hadoop1
   通过下面的命令将公钥文件发送到节点2,创建root 免密钥通道(需要输入root 密码 ) :
 
 ```
-ssh-copy-id  -i  /root/.ssh/id_rsa.pub   root@hadoop02
+ssh-copy-id  -i  /root/.ssh/id_rsa.pub   root@hadoop2
 ```
 
   通过下面的命令将公钥文件发送到节点3,创建root 免密钥通道(需要输入 root 密码 ) :
