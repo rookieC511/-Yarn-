@@ -126,10 +126,6 @@ ssh-copy-id  -i  /root/.ssh/id_rsa.pub   root@hadoop4
 
 ## Usage 
 
-### 使用版本
-以下指南将帮助你在本地机器上安装和运行该项目，进行开发和测试。关于如何将该项目部署到在线环境，请参考部署小节
-
-### 部署
 
 ### 初步实验
 使用四个队列，资源划分为 10，20，30，40
@@ -216,8 +212,8 @@ QUEUE2的占用超过100%，证明从其它队列借用空闲资源
 ![image-20241209013809140](picture/log1416.png)
 ## Maintainers
 [@nekoder](https://github.com/nekoder2002) <br>
-Feixiang,He 2027245102@qq.com <br>
-Bochen,Lin linbochen2002@163.com <br>
+[@He Feixiang](https://github.com/1BrianHe1) <br>
+[@Bert](https://github.com/aibert2) <br>
 [@rookieC511](https://github.com/rookieC511)
 ## Contributing
 ## License
