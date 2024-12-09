@@ -36,11 +36,11 @@
 
   以hadoop1节点为例，在  /etc/netplan/50-cloud-init.yaml中关闭dhcp,写入静态ip地址，虚拟局域网的网关ip，并配置dns
 
-![install1.png](.\picture\install1.png)
+![install1.png](./picture/install1.png)
 
   在 /etc/hosts文件中配置集群所有节点的ip地址
 
-![image-20241209201217928](.\picture\image-20241209201217928.png)
+![image-20241209201217928](./picture/image-20241209201217928.png)
 
   完成后使用相关命令更新配置信息，并使用Ping命令测试
 
@@ -84,7 +84,7 @@ ssh-copy-id  -i  /root/.ssh/id_rsa.pub   root@hadoop4
 
 首先在/etc/proflie文件中修改环境变量信息
 
-![image-20241209202659173](.\picture\image-20241209202659173.png)
+![image-20241209202659173](./picture/image-20241209202659173.png)
 
 4、修改配置文件信息，这里篇幅较长不过多赘述，可以将github中的文件夹分别复制到hadoop和spark文件夹下
 
