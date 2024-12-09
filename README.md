@@ -4,7 +4,6 @@
 - [Install](#install)
 - [Usage](#Usage)
 - [Maintainers](#maintainers)
-- [Contributing](#contributing)
 - [License](#license)
 ## Background
 
