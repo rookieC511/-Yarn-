@@ -6,51 +6,51 @@
 
 
 
-![image-20241208161425460](C:\Users\20372\AppData\Roaming\Typora\typora-user-images\image-20241208161425460.png)
+![image-20241208161425460](picture/log154.png)
 
-![image-20241208161516495](C:\Users\20372\AppData\Roaming\Typora\typora-user-images\image-20241208161516495.png)
+![image-20241208161516495](picture/log184.png)
 
 # 修改queue1的maxcapacity为50，观察其运行时间
 
 
 
-![image-20241208184826561](C:\Users\20372\AppData\Roaming\Typora\typora-user-images\image-20241208184826561.png)
+![image-20241208184826561](picture/log246.png)
 
-![image-20241208185518936](C:\Users\20372\AppData\Roaming\Typora\typora-user-images\image-20241208185518936.png)
+![image-20241208185518936](picture/log354.png)
 
 # 当MAX CAPACITY为50时，运行时间约为3min，即：队列的总可调度资源影响作业执行效率
 
-![image-20241208185740972](C:\Users\20372\AppData\Roaming\Typora\typora-user-images\image-20241208185740972.png)
+![image-20241208185740972](picture/log457.png)
 
 
 
 # 向队列2提交四个并行任务
 
-![image-20241208183730276](C:\Users\20372\AppData\Roaming\Typora\typora-user-images\image-20241208183730276.png)
+![image-20241208183730276](picture/log486.png)
 
 QUEUE2的占用超过100%，证明从其它队列借用空闲资源
 
-![image-20241208184000841](C:\Users\20372\AppData\Roaming\Typora\typora-user-images\image-20241208184000841.png)
+![image-20241208184000841](picture/log572.png)
 
 查看任务提交和完成的顺序，得出队列任务调度执行FIFO
 
-![image-20241208191358284](C:\Users\20372\AppData\Roaming\Typora\typora-user-images\image-20241208191358284.png)
+![image-20241208191358284](picture/log664.png)
 
 # 研究capacity中的优先级：
 
 ## 设置最大优先级为3
 
-![image-20241208195659437](C:\Users\20372\AppData\Roaming\Typora\typora-user-images\image-20241208195659437.png)
+![image-20241208195659437](picture/log694.png)
 
 ## 将队列设置为两个，资源分配为30%和70%，并指定优先级为2和1
 
-![image-20241208195828566](C:\Users\20372\AppData\Roaming\Typora\typora-user-images\image-20241208195828566.png)
+![image-20241208195828566](picture/log724.png)
 
-![image-20241208201023903](C:\Users\20372\AppData\Roaming\Typora\typora-user-images\image-20241208201023903.png)
+![image-20241208201023903](picture/log754.png)
 
-![image-20241208225947073](C:\Users\20372\AppData\Roaming\Typora\typora-user-images\image-20241208225947073.png)
+![image-20241208225947073](picture/log784.png)
 
-![image-20241208230304470](C:\Users\20372\AppData\Roaming\Typora\typora-user-images\image-20241208230304470.png)
+![image-20241208230304470](picture/log786.png)
 
 ![image-20241208230349763](C:\Users\20372\AppData\Roaming\Typora\typora-user-images\image-20241208230349763.png)
 
@@ -72,8 +72,8 @@ QUEUE2的占用超过100%，证明从其它队列借用空闲资源
 
 将三个作业同时运行在firstqueue
 
-![image-20241209011027126](C:\Users\20372\AppData\Roaming\Typora\typora-user-images\image-20241209011027126.png)
+![image-20241209011027126](picture/log1351.png)
 
 将三个作业运行在first,second,third queue中
 
-![image-20241209013809140](C:\Users\20372\AppData\Roaming\Typora\typora-user-images\image-20241209013809140.png)
+![image-20241209013809140](picture/log1416.png)
