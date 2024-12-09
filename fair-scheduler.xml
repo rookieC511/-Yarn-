@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<allocations>
+  <!-- 队列：first -->
+  <queue name="first">
+    <minResources>512mb,1vcores</minResources>
+    <maxResources>30720mb,1vcores</maxResources>
+    <maxRunningApps>100</maxRunningApps>
+    <schedulingMode>fair</schedulingMode>
+    <weight>2.0</weight>
+  </queue>
+
+  <!-- 队列：second -->
+  <queue name="second">
+    <minResources>512mb,1vcores</minResources>
+    <maxResources>20480mb,1vcores</maxResources>
+    <maxRunningApps>100</maxRunningApps>
+    <schedulingMode>fair</schedulingMode>
+    <weight>2.0</weight>
+  </queue>
+
+  <!-- 队列：third -->
+  <queue name="third">
+    <minResources>512mb,1vcores</minResources>
+    <maxResources>20480mb,1vcores</maxResources>
+    <maxRunningApps>100</maxRunningApps>
+    <schedulingMode>fair</schedulingMode>
+    <weight>2.0</weight>
+  </queue>
+
+  <!-- 默认队列 -->
+  <queue name="default">
+    <minResources>512mb,1vcores</minResources>
+    <maxResources>20480mb,1vcores</maxResources>
+    <maxRunningApps>100</maxRunningApps>
+    <schedulingMode>fair</schedulingMode>
+    <weight>2.0</weight>
+  </queue>
+
+  <queueMaxAMShareDefault>0.5</queueMaxAMShareDefault>
+  <userMaxAppsDefault>500</userMaxAppsDefault>
+  <queuePlacementPolicy>
+     <rule name="specified" create="false"/>
+     <rule name="primaryGroup" create="false"/>
+     <rule name="user" create="false" />
+     <rule name="reject"/>
+  </queuePlacementPolicy>
+</allocations> 
+
