@@ -6,6 +6,32 @@
 - [Maintainers](#maintainers)
 - [License](#license)
 ## Background
+YARN（Yet Another Resource Negotiato）是Hadoop集群的资源管理和调度系统，它负责为各种分布式计算任务分配和管理资源,包含以下组件：ResourceManager，NodeManager，ApplicationMaster， Container。
+### YARN调度器和调度算法
+Hadoop作业调度器主要有三种，分别是先进先出调度器(FIFO)、容量调度器(Capacity Scheduler)和公平调度器(Fair Scheduler), 在Hadoop3.1.3中， 默认的资源调度器是容量调度器，CDH 框架默认调度器是公平调度器。
+**FIFO 调度器（First In First Out）**：一个队列根据作业提交的先后顺序，先来先服务。
+**容量调度器**
+容量调度器是Yahoo开发的多用户调度器，它支持多队列，每个队列可以配置一定的资源量。
+**与容量调度器的区别**
+
+**调度策略不同**
+容量调度器：优先选择资源利用率低的队列分配资源。
+公平调度器：优先选择资源缺额比例大的队列分配资源。
+
+**队列资源分配方式不同**
+容量调度器：FIFO、 DRF
+公平调度器：FIFO、FAIR、DRF
+公平调度器的资源分配策略
+
+1）FIFO策略
+
+公平调度器若采用此策略就相当于容量调度器。
+
+2）Fair策略（默认的实现方式）
+
+Fair基于公平算法分配资源，若一个队列中有两个应用程序同时运行，则每个应用程序可得到1/2的资源，如果有三个应用程序同时运行，则每个应用程序可得到1/3的资源。
+
+资源的分配流程和容量调度器一致，按照队列，作业，容器的顺序分配，每一步都是按照公平策略分配资源。
 
 ## Install
 
