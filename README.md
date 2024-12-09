@@ -36,7 +36,7 @@
 
   以hadoop1节点为例，在  /etc/netplan/50-cloud-init.yaml中关闭dhcp,写入静态ip地址，虚拟局域网的网关ip，并配置dns
 
-![](.\picture\install1)
+![install1.png](.\picture\install1.png)
 
   在 /etc/hosts文件中配置集群所有节点的ip地址
 
@@ -88,7 +88,9 @@ ssh-copy-id  -i  /root/.ssh/id_rsa.pub   root@hadoop4
 
 4、修改配置文件信息，这里篇幅较长不过多赘述，可以将github中的文件夹分别复制到hadoop和spark文件夹下
 
+这里需要在hadoop文件夹下创建一个hadoop文件夹，在下面分别创建tmp,name,data文件夹
 
+需要注意，部署完成后使用scp命令将所有配置文件同步到其他节点。
 
 5、启动spark和hadoop集群
 
