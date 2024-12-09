@@ -128,12 +128,21 @@ ssh-copy-id  -i  /root/.ssh/id_rsa.pub   root@hadoop4
 
 
 ### 初步实验
-使用四个队列，资源划分为 10，20，30，40
+使用四个队列，CAPACITY即资源划分为 10，20，30，40
 
 ![image-20241208195252586](picture/log53.png)
 
-### 参数MAX CAPACITY
-maxcapacity为100，允许借用其它资源，只提交作业提交在第一个队列  占用为166.7%，证明向其它队列借用资源，运行时间为1min
+### 参数maximumCAPACITY和CAPACITY
+maximum-capacity 是一个参数，用于定义 队列能够使用的最大资源容量，以百分比的形式表示。它主要用于 Capacity Scheduler 中，用来管理集群资源的分配。
+
+max-capacity 的作用
+限制某个队列的最大资源占用比例：
+每个队列可以使用的资源不会超过 max-capacity 指定的百分比，即使集群中有剩余资源。
+它通常用来避免某个队列独占资源，影响其他队列的任务运行。
+capacity表示默认容量，而maximum—capacity表示最大容量上限即队列能够抢占之后的最大容量上限。
+
+maximum-capacity为100，允许借用其它资源，只提交作业提交在第一个队列  占用为166.7%，证明向其它队列借用资源，达到了他本身运行资源的166.7%，
+运行时间为1min。
 
 
 
