@@ -1,5 +1,4 @@
 ## Table of Contents
-
 - [Background](#background)
 - [Install](#install)
 - [Usage](#Usage)
@@ -150,8 +149,10 @@ ssh-copy-id  -i  /root/.ssh/id_rsa.pub   root@hadoop4
 ![image-20241209214243713](./picture/image-20241209214243713.png)
 
 ## Usage 
-
-
+### 研究目的
+随着大数据技术的发展，资源管理和任务调度在分布式计算框架中的作用愈发重要。Apache YARN（Yet Another Resource Negotiator）作为 Hadoop 生态系统的资源管理器，提供了多种调度策略来满足不同场景下的资源分配需求，包括 FIFO 调度器、Capacity 调度器 和 Fair 调度器。
+本研究的目的是通过实验对比这三种调度策略在 资源分配公平性、任务完成时间 和 资源利用率 等方面的性能表现，探讨不同调度器在各种负载条件下的适用性和优缺点，为分布式任务调度策略的选择提供理论支持和实践依据。
+### 研究方法
 ### 初步实验
 使用四个队列，CAPACITY即资源划分为 10，20，30，40
 
@@ -259,10 +260,22 @@ QUEUE2的占用超过100%，证明从其它队列借用空闲资源
 
 ![image-20241209013809140](picture/log1416.png)
 ## Maintainers
-[@nekoder](https://github.com/nekoder2002) <br>
+[@nekoder](https://github.com/nekoder2002)  <br>
 [@He Feixiang](https://github.com/1BrianHe1) <br>
 [@Bert](https://github.com/aibert2) <br>
 [@rookieC511](https://github.com/rookieC511)
+### 小组分工
+盛鼎贡献25%，负责实验环境搭建，实验1
+贺飞翔贡献25%，负责实验环境搭建，实验1，2，3。
+常城贡献25%，负责实验2，3，github仓库建立和上传。
+蔺柏臣贡献25%，负责实验2，3，ppt制作。
+### 实验结果
+**FIFO 调度器**
+适合简单、单一任务场景，资源分配快速，但无法动态调整，任务完成时间较长，资源公平性较差。
+**Capacity 调度器**
+适合多队列、多租户环境，资源分配灵活，可设置队列容量，但配置复杂，调度延迟较高。
+**Fair 调度器**
+资源分配最公平，动态性和资源利用率最高，特别适用于高负载和混合任务场景，但调度逻辑相对复杂，延迟略高于 FIFO。
 ## Contributing
 ## License
 [MIT](LICENSE) © Richard Littauer
