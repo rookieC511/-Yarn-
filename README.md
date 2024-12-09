@@ -10,7 +10,110 @@
 
 ## Install
 
+### 安装环境
+
+实验环境：四台虚拟机节点
+
+操作系统：Ubuntu 24.04.1 amd64
+
+集群环境：Hadoop 3.4.1,Spark 3.5.3
+
+确保集群中所有OS安装以下基础软件配置
+
+| 软件环境                     | 版本号                 |
+| ---------------------------- | ---------------------- |
+| Python                       | 3.12.0                 |
+| Scala                        | 3.4.1                  |
+| ssh(远程调用工具)            | lastest（apt命令安装） |
+| ifconfig（网络配置查看工具） | lastest（apt命令安装） |
+| Java                         | open-jdk21             |
+
+### 安装步骤
+
+1、配置集群网络环境
+
+  首先，确保集群在统一局域网下，这里配置虚拟局域网并配置节点的静态IP
+
+  以hadoop1节点为例，在  /etc/netplan/50-cloud-init.yaml中关闭dhcp,写入静态ip地址，虚拟局域网的网关ip，并配置dns
+
+![](.\picture\install1)
+
+  在 /etc/hosts文件中配置集群所有节点的ip地址
+
+![image-20241209201217928](.\picture\image-20241209201217928.png)
+
+  完成后使用相关命令更新配置信息，并使用Ping命令测试
+
+2、配置节点远程调用
+
+  首先配置SSH免密码登录，通过免密登录各个节点可以访问其他节点而不需要输入密码验证。 在节点1上输入ssh-keygen -t rsa
+
+指令生成密钥，默认会在~/.ssh/文件夹下生成公钥文件id_rsa.pub和私钥文件id_rsa。
+
+  通过下面的命令将公钥文件发送到本机，创建 root 免密钥通道(需要输入root 密码 ) :
+
+```
+ssh-copy-id  -i  /root/.ssh/id_rsa.pub  root@hadoop1
+```
+
+  通过下面的命令将公钥文件发送到节点2,创建root 免密钥通道(需要输入root 密码 ) :
+
+```
+ssh-copy-id  -i  /root/.ssh/id_rsa.pub   root@hadoop02
+```
+
+  通过下面的命令将公钥文件发送到节点3,创建root 免密钥通道(需要输入 root 密码 ) :
+
+```
+ssh-copy-id  -i  /root/.ssh/id_rsa.pub   root@hadoop3
+```
+
+   通过下面的命令将公钥文件发送到节点4创建root 免密钥通道(需要输入 root 密码 ) :
+
+```
+ssh-copy-id  -i  /root/.ssh/id_rsa.pub   root@hadoop4
+```
+
+ 依次在节点2，节点3和节点4上生成密钥，并将公钥发送到本机及其他节点。
+
+3、配置Haddop和Spark集群
+
+在官网下载Hadoop安装包，解压并放置在/usr/local/hadoop文件夹下
+
+在官网下载Spark安装包，解压并放置在/usr/local/spark文件下
+
+首先在/etc/proflie文件中修改环境变量信息
+
+![image-20241209202659173](.\picture\image-20241209202659173.png)
+
+4、修改配置文件信息，这里篇幅较长不过多赘述，可以将github中的文件夹分别复制到hadoop和spark文件夹下
+
+
+
+5、启动spark和hadoop集群
+
+运行如下命令，启动集群
+
+```
+/usr/loacal/hadoop/sbin/start-all.sh
+/usr/loacal/spark/sbin/start-all.sh
+```
+
+下面是关闭集群的命令
+
+```
+/usr/loacal/spark/sbin/stop-all.sh
+/usr/loacal/hadoop/sbin/stop-all.sh
+```
+
+6、验证是否部署成功
+
+查看http://hadoop1:50070 Web页面
+
+使用jps命令查看当前进程
+
 ## Usage 
+
 ### 使用版本
 以下指南将帮助你在本地机器上安装和运行该项目，进行开发和测试。关于如何将该项目部署到在线环境，请参考部署小节
 
