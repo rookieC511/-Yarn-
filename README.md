@@ -202,8 +202,8 @@ QUEUE2的占用超过100%，证明从其它队列借用空闲资源
 ![image-20241209013809140](picture/log1416.png)
 ## Maintainers
 [@nekoder](https://github.com/nekoder2002) <br>
-Feixiang,He 2027245102@qq.com <br>
-Bochen,Lin linbochen2002@163.com <br>
+[@He Feixiang](https://github.com/1BrianHe1) <br>
+[@Bert](https://github.com/aibert2) <br>
 [@rookieC511](https://github.com/rookieC511)
 ## Contributing
 ## License
